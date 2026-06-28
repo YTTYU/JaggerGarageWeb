@@ -12,7 +12,7 @@ import { P41Scene } from "@/components/P41Scene";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
-const nav = ["P-4", "Технологии", "Характеристики", "Галерея", "О компании", "Контакты"];
+const nav = ["Технологии", "Характеристики", "Галерея", "О компании"];
 
 const contacts = {
   phone: "+792132277788",
@@ -207,8 +207,8 @@ function Engineering() {
             P-4 проектируется как промышленная платформа: тяговитый дизель, автоматическая трансмиссия, длинноходная подвеска и гусеничный движитель для слабонесущих грунтов.
           </p>
         </Reveal>
-        <Reveal className="relative min-h-[520px] overflow-hidden rounded-[8px] border border-white/10">
-          <Image src="/images/p41-hero.png" alt="Снегоболотоход P-4" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" priority />
+        <Reveal className="relative min-h-[520px] overflow-hidden rounded-[8px]">
+          <Image src="/images/p41-hero-2.png" alt="Снегоболотоход P-4" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" priority />
           <div className="absolute inset-0 bg-gradient-to-t from-carbon via-carbon/10 to-transparent" />
           <div className="absolute bottom-5 left-5 right-5 grid grid-cols-3 gap-2">
             {["Рабочее", "Транспортное", "Контейнерное"].map((item) => (
