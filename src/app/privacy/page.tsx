@@ -1,7 +1,11 @@
 import { readFileSync } from "node:fs";
 import Link from "next/link";
+import path from "path";
 
-const privacyText = readFileSync("C:\\Users\\1\\3D Objects\\needfiles\\privacy.txt", "utf8");
+const privacyText = readFileSync(
+  path.join(process.cwd(), "public", "privacy.txt"),
+  "utf8"
+);
 
 export default function PrivacyPage() {
   return (
