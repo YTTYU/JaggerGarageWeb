@@ -10,8 +10,7 @@ export function P41Scene() {
         fill
         priority
         sizes="100vw"
-        // className="object-contain object-center px-0 pt-10"
-        className="object-contain object-center scale-155"
+        className="translate-y-12 scale-[1.58] object-contain object-center sm:translate-y-8 sm:scale-[1.38] md:translate-y-0 md:scale-100"
       />
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(5,6,7,0.18)_52%,rgba(5,6,7,0.88)_100%)]" />
     </div>

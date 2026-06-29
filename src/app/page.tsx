@@ -1,8 +1,8 @@
-"use client";
+﻿"use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import gsap from "gsap";
-import { ArrowDown, ArrowRight, Check, ChevronRight, Gauge, Mail, Menu, Phone, Send, Shield, Truck } from "lucide-react";
+import { ArrowDown, ArrowRight, Check, ChevronLeft, ChevronRight, Mail, Menu, Phone, Send, X } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import type { PointerEvent } from "react";
@@ -28,7 +28,7 @@ const contacts = {
 const advantages = [
   ["Создан для тяжелых условий", "Резинокордовые гусеницы", "Равномерное распределение нагрузки и низкое давление на грунт."],
   ["Скорость до 90 км/ч", "Высокая мобильность", "Быстрое перемещение между объектами без ущерба проходимости."],
-  ["Амфибийность", "Вода без доработок", "Движение по воде без дополнительного оборудования."],
+  ["Амфибийность", "Вода без доработок", "Выход на воду без дополнительной подготовки."],
   ["Контейнерная транспортировка", "Три положения", "Упрощенная логистика полуприцепом, эвакуатором или контейнером."],
   ["Движение по асфальту", "Без повреждения покрытия", "Резиновые гусеницы сохраняют твердое покрытие."],
   ["Автомобильный комфорт", "Привычное управление", "Просторная кабина и эргономика для длительных смен."],
@@ -36,9 +36,61 @@ const advantages = [
   ["Обслуживание из салона", "Доступ без выхода наружу", "Основные узлы доступны даже в тяжелую погоду."],
 ];
 
+const advantageGroups = [
+  {
+    title: "Проходимость и мобильность",
+    items: [
+      {
+        title: "Резинокордовые гусеницы",
+        text: "Бесшумность работы, отсутствие ограничений по типу поверхности, отсутствие обмерзания и большой срок эксплуатации.",
+      },
+      {
+        title: "Скорость до 90 км/ч",
+        text: "Высокая мобильность между объектами без ущерба проходимости. Скорость на воде — до 6 км/ч.",
+      },
+      {
+        title: "Амфибийность",
+        text: "P-4 может выходить на воду без дополнительной подготовки. Геометрия кузова рассчитана для уверенного движения по воде, а поднятые борта позволяют выходить на берег практически в любом подходящем месте.",
+      },
+      {
+        title: "Автомобильный комфорт",
+        text: "Привычные органы управления, просторная кабина и эргономика для длительных смен.",
+      },
+    ],
+  },
+  {
+    title: "Эксплуатация и адаптация",
+    items: [
+      {
+        title: "Движение по асфальту",
+        text: "Резиновые гусеницы сохраняют твёрдое покрытие и позволяют работать без ограничений по типу поверхности.",
+      },
+      {
+        title: "Контейнерная транспортировка",
+        text: "Упрощённая логистика полуприцепом, эвакуатором или морским контейнером.",
+      },
+      {
+        title: "Дополнительное оборудование",
+        text: "Модульная конструкция P-4 позволяет устанавливать КМУ, вышки, сварочные модули, навесное и гидравлическое оборудование, снегоочистительный вал, аутригеры и буровые установки.",
+      },
+      {
+        title: "Обслуживание из салона",
+        text: "Основные узлы доступны без выхода наружу, в том числе при тяжелой погоде и автономной эксплуатации.",
+      },
+    ],
+  },
+];
+
 const engineering = [
   ["Cummins ISF 2.8", "170 л.с.", "400 Н·м", "Турбодизель с запасом тяги для тяжелого грунта."],
   ["Автоматическая коробка ZF", "6 передач", "ZF 6AT", "Автомобильный уровень плавности и предсказуемого управления."],
+  ["Длинноходная подвеска", "Плавность хода", "Стабильность", "Контроль кузова на снегу, колее, грязи и лесных дорогах."],
+  ["Гидравлическое натяжение", "Ресурс гусениц", "Надежность", "Поддержание оптимальной работы движителя в экспедициях."],
+];
+
+const engineeringCards = [
+  ["Cummins ISF 2.8", "170 л.с.", "400 Н·м", "Турбодизель с запасом тяги для тяжелого грунта."],
+  ["Трансмиссия", "АКПП / МКПП", "Отбор мощности", "P-4 может оснащаться как автоматической, так и механической коробкой передач. Машина также оборудована раздаточной коробкой с возможностью механического отбора мощности."],
   ["Длинноходная подвеска", "Плавность хода", "Стабильность", "Контроль кузова на снегу, колее, грязи и лесных дорогах."],
   ["Гидравлическое натяжение", "Ресурс гусениц", "Надежность", "Поддержание оптимальной работы движителя в экспедициях."],
 ];
@@ -64,6 +116,17 @@ const cabin = [
   "GPS-панель приборов",
   "Беспроводная зарядка",
   "Обслуживание двигателя из салона",
+];
+
+const cabinFeatures = [
+  "Подогрев сидений",
+  "Климатическая система",
+  "Отопители",
+  "Электропакет",
+  "Подогрев стекол",
+  "GPS-панель приборов",
+  "Обслуживание двигателя из салона",
+  "Внутренний проход в кузов для безопасного перемещения экипажа без выхода наружу",
 ];
 
 const gallery = [
@@ -131,9 +194,9 @@ function Hero() {
 
   return (
     <section id="top" className="relative min-h-[100svh] overflow-hidden">
-      <div className="absolute inset-0 fine-grid opacity-40" />
+      <div className="pointer-events-none absolute inset-0 fine-grid opacity-40" />
 
-      <div className="absolute inset-0 scale-[1.35] md:scale-100">
+      <div className="pointer-events-none absolute inset-0">
         <P41Scene />
       </div>
 
@@ -160,16 +223,16 @@ function Hero() {
           ))}
         </div>
 
-        <div className="pointer-events-auto mt-9 flex flex-col gap-3 sm:flex-row">
-          <Button asChild size="lg">
-            <a href="#contacts">Получить коммерческое предложение <Send size={18} /></a>
+        <div className="pointer-events-auto mt-9 flex w-full max-w-xl flex-col gap-3 sm:w-auto sm:max-w-none sm:flex-row">
+          <Button asChild size="lg" className="w-full sm:w-auto">
+            <a href="#contacts">Связаться <Send size={18} /></a>
           </Button>
 
-          <Button asChild size="lg" className="w-full sm:w-auto [&_*]:pointer-events-none">
+          <Button asChild size="lg" className="w-full sm:w-auto">
             <Link href="/modifier">Открыть модификатор <ArrowRight size={18} /></Link>
           </Button>
 
-          <Button asChild size="lg" variant="secondary">
+          <Button asChild size="lg" variant="secondary" className="w-full sm:w-auto">
             <a href="#характеристики">Изучить характеристики <ArrowDown size={18} /></a>
           </Button>
         </div>
@@ -192,24 +255,27 @@ function Advantages() {
             </h2>
           </div>
           <p className="max-w-md text-base leading-7 text-white/62">
-            Инженерная машина для нефтегаза, геологоразведки, энергетики, лесной промышленности, строительства и служб реагирования.
+            Утилитарная инженерная машина для нефтегаза, геологоразведки, энергетики, лесной промышленности, строительства и служб реагирования.
           </p>
         </Reveal>
 
-        <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {advantages.map(([title, kicker, text], index) => (
-            <Reveal key={title}>
-              <Card className="group min-h-[230px] overflow-hidden transition duration-300 hover:-translate-y-1 hover:border-ember/45">
-                <CardContent>
-                  <div className="mb-8 flex h-11 w-11 items-center justify-center rounded-[8px] border border-white/12 bg-white/[0.055] text-ember">
-                    {index % 3 === 0 ? <Shield size={20} /> : index % 3 === 1 ? <Gauge size={20} /> : <Truck size={20} />}
-                  </div>
-                  <p className="mb-3 text-xs uppercase tracking-[0.22em] text-steel">{kicker}</p>
-                  <h3 className="mb-4 text-xl font-semibold text-white">{title}</h3>
-                  <p className="leading-7 text-white/62">{text}</p>
-                </CardContent>
-              </Card>
-            </Reveal>
+        <div className="grid gap-8">
+          {advantageGroups.map((group) => (
+            <div key={group.title}>
+              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.24em] text-steel">{group.title}</p>
+              <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+                {group.items.map((item) => (
+                  <Reveal key={item.title}>
+                    <Card className="group min-h-[250px] overflow-hidden border-white/8 bg-white/[0.035] transition duration-300 hover:-translate-y-1 hover:border-ember/36 hover:bg-white/[0.055]">
+                      <CardContent>
+                        <h3 className="mb-5 text-2xl font-semibold leading-tight text-white md:text-[28px]">{item.title}</h3>
+                        <p className="leading-7 text-white/62">{item.text}</p>
+                      </CardContent>
+                    </Card>
+                  </Reveal>
+                ))}
+              </div>
+            </div>
           ))}
         </div>
       </div>
@@ -229,14 +295,14 @@ function AcademegSupport() {
 
             <div className="relative mx-auto flex max-w-3xl flex-col items-center">
               <p className="text-xs font-semibold uppercase tracking-[0.34em] text-ember md:text-sm">
-                Проект создаётся при поддержке
+                Совместный проект
               </p>
 
               <div className="mt-9 flex min-h-36 w-full max-w-md items-center justify-center rounded-[8px] border border-white/10 bg-white/[0.045] px-8 py-8 shadow-glass backdrop-blur-2xl">
                 <span
                   className="block h-28 w-56 bg-ember drop-shadow-[0_0_34px_rgba(141,160,184,0.34)]"
                   role="img"
-                  aria-label="Академиг"
+                  aria-label="Академег"
                   style={{
                     WebkitMaskImage: `url('${BASE_PATH}/images/akademig.svg')`,
                     maskImage: `url('${BASE_PATH}/images/akademig.svg')`,
@@ -251,7 +317,7 @@ function AcademegSupport() {
               </div>
 
               <p className="mt-9 max-w-2xl text-balance text-lg leading-8 text-white/72 md:text-xl md:leading-9">
-                Академиг — автомобильный блогер и технический партнёр проекта P-4, принимающий участие
+                Академег — автомобильный блогер и партнёр проекта P-4, принимающий участие
                 в развитии, испытаниях и популяризации машины.
               </p>
             </div>
@@ -279,7 +345,7 @@ function Engineering() {
         <Reveal className="relative min-h-[520px] overflow-hidden rounded-[8px]">
           <Image src={`${BASE_PATH}/images/p41-hero-2.png`} alt="Снегоболотоход P-4" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" priority />
           <div className="absolute inset-0 bg-gradient-to-t from-carbon via-carbon/10 to-transparent" />
-          <div className="absolute bottom-5 left-5 right-5 grid grid-cols-3 gap-2">
+          <div className="hidden">
             {["Рабочее", "Транспортное", "Контейнерное"].map((item) => (
               <div key={item} className="glass rounded-[8px] px-3 py-3 text-center text-sm text-white/82">{item}</div>
             ))}
@@ -288,7 +354,7 @@ function Engineering() {
       </div>
 
       <div className="section-shell mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-        {engineering.map(([title, statA, statB, text]) => (
+        {engineeringCards.map(([title, statA, statB, text]) => (
           <Reveal key={title}>
             <Card>
               <CardContent>
@@ -361,7 +427,7 @@ function Cabin() {
           <p className="mb-4 text-sm uppercase tracking-[0.28em] text-ember">Кабина</p>
           <h2 className="text-balance text-4xl font-semibold leading-tight md:text-6xl">Комфорт автомобильного уровня</h2>
           <div className="mt-8 grid gap-3 sm:grid-cols-2">
-            {cabin.map((item) => (
+            {cabinFeatures.map((item) => (
               <div key={item} className="flex items-center gap-3 rounded-[8px] border border-white/10 bg-white/[0.045] px-4 py-3 text-white/78">
                 <Check size={18} className="shrink-0 text-ember" />
                 <span>{item}</span>
@@ -484,6 +550,92 @@ function Gallery() {
   );
 }
 
+function CompactGallery() {
+  const galleryRef = useRef<HTMLDivElement>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const scrollGallery = (direction: -1 | 1) => {
+    const element = galleryRef.current;
+    if (!element) return;
+
+    element.scrollBy({
+      left: direction * element.clientWidth * 0.9,
+      behavior: "smooth",
+    });
+  };
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setLightboxIndex(null);
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [lightboxIndex]);
+
+  const lightboxImage = lightboxIndex === null ? null : gallery[lightboxIndex];
+
+  return (
+    <section id="галерея" className="bg-carbon py-18 md:py-28">
+      <div className="section-shell">
+        <Reveal className="mb-8 flex flex-col justify-between gap-6 md:flex-row md:items-end">
+          <div>
+            <p className="mb-4 text-sm uppercase tracking-[0.28em] text-ember">Галерея</p>
+            <h2 className="text-balance max-w-4xl text-4xl font-semibold leading-tight md:text-6xl">
+              Полноэкранная подача промышленного продукта
+            </h2>
+          </div>
+          <div className="flex gap-2">
+            <button type="button" onClick={() => scrollGallery(-1)} className="flex h-12 w-12 items-center justify-center rounded-[8px] border border-white/12 bg-white/[0.045] text-white/76 transition hover:border-ember/45 hover:text-white" aria-label="Предыдущее фото">
+              <ChevronLeft size={20} />
+            </button>
+            <button type="button" onClick={() => scrollGallery(1)} className="flex h-12 w-12 items-center justify-center rounded-[8px] border border-white/12 bg-white/[0.045] text-white/76 transition hover:border-ember/45 hover:text-white" aria-label="Следующее фото">
+              <ChevronRight size={20} />
+            </button>
+          </div>
+        </Reveal>
+
+        <div
+          ref={galleryRef}
+          className="hide-scrollbar relative z-10 flex snap-x gap-4 overflow-x-auto pb-3 touch-pan-x"
+        >
+          {gallery.map(([src, alt], index) => (
+            <button
+              key={src}
+              type="button"
+              onClick={() => setLightboxIndex(index)}
+              className="group relative h-[310px] w-[84vw] shrink-0 snap-start overflow-hidden rounded-[8px] border border-white/10 bg-white/[0.035] text-left transition hover:border-ember/36 sm:w-[48vw] md:h-[360px] lg:w-[31.5%]"
+            >
+              <Image src={src} alt={alt} fill sizes="(min-width: 1024px) 32vw, (min-width: 640px) 48vw, 84vw" draggable={false} className="object-cover transition duration-700 group-hover:scale-[1.04]" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/72 via-transparent to-black/16" />
+              <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4">
+                <div>
+                  <p className="font-mono text-xs text-ember">{String(index + 1).padStart(2, "0")}</p>
+                  <h3 className="mt-2 text-xl font-semibold text-white">{alt}</h3>
+                </div>
+                <ArrowRight className="hidden shrink-0 text-white/70 md:block" />
+              </div>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      {lightboxImage ? (
+        <div className="fixed inset-0 z-[90] flex items-center justify-center bg-black/86 p-4 backdrop-blur-xl" onClick={() => setLightboxIndex(null)}>
+          <button type="button" onClick={() => setLightboxIndex(null)} className="absolute right-4 top-4 z-10 flex h-12 w-12 items-center justify-center rounded-[8px] border border-white/14 bg-white/[0.06] text-white transition hover:border-ember/45" aria-label="Закрыть галерею">
+            <X size={22} />
+          </button>
+          <div className="relative h-[82vh] w-full max-w-6xl" onClick={(event) => event.stopPropagation()}>
+            <Image src={lightboxImage[0]} alt={lightboxImage[1]} fill sizes="100vw" className="object-contain" priority />
+          </div>
+        </div>
+      ) : null}
+    </section>
+  );
+}
+
 function CompanyAndContacts() {
   return (
     <section id="о-компании" className="relative bg-graphite py-24 md:py-36">
@@ -571,12 +723,10 @@ function AnimatedPage() {
       <Header />
       <Hero />
       <Advantages />
-      <AcademegSupport />
       <Engineering />
-      <Transport />
       <Cabin />
       <Specs />
-      <Gallery />
+      <CompactGallery />
       <CompanyAndContacts />
 
       <footer className="border-t border-white/10 bg-carbon px-4 py-10 text-sm text-white/58">
