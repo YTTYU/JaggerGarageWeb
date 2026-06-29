@@ -283,51 +283,6 @@ function Advantages() {
   );
 }
 
-function AcademegSupport() {
-  return (
-    <section className="relative overflow-hidden bg-carbon py-16 md:py-24">
-      <div className="section-shell">
-        <Reveal>
-          <div className="relative overflow-hidden border-y border-white/14 py-12 text-center md:py-16">
-            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-ember/60 to-transparent" />
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-ember/40 to-transparent" />
-            <div className="pointer-events-none absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-ember/12 blur-3xl" />
-
-            <div className="relative mx-auto flex max-w-3xl flex-col items-center">
-              <p className="text-xs font-semibold uppercase tracking-[0.34em] text-ember md:text-sm">
-                Совместный проект
-              </p>
-
-              <div className="mt-9 flex min-h-36 w-full max-w-md items-center justify-center rounded-[8px] border border-white/10 bg-white/[0.045] px-8 py-8 shadow-glass backdrop-blur-2xl">
-                <span
-                  className="block h-28 w-56 bg-ember drop-shadow-[0_0_34px_rgba(141,160,184,0.34)]"
-                  role="img"
-                  aria-label="Академег"
-                  style={{
-                    WebkitMaskImage: `url('${BASE_PATH}/images/akademig.svg')`,
-                    maskImage: `url('${BASE_PATH}/images/akademig.svg')`,
-                    WebkitMaskRepeat: "no-repeat",
-                    maskRepeat: "no-repeat",
-                    WebkitMaskPosition: "center",
-                    maskPosition: "center",
-                    WebkitMaskSize: "contain",
-                    maskSize: "contain",
-                  }}
-                />
-              </div>
-
-              <p className="mt-9 max-w-2xl text-balance text-lg leading-8 text-white/72 md:text-xl md:leading-9">
-                Академег — автомобильный блогер и партнёр проекта P-4, принимающий участие
-                в развитии, испытаниях и популяризации машины.
-              </p>
-            </div>
-          </div>
-        </Reveal>
-      </div>
-    </section>
-  );
-}
-
 function Engineering() {
   return (
     <section id="технологии" className="relative overflow-hidden bg-[#0a0c0d] py-24 md:py-36">
@@ -638,64 +593,97 @@ function CompactGallery() {
 
 function CompanyAndContacts() {
   return (
-    <section id="о-компании" className="relative bg-graphite py-24 md:py-36">
-      <div className="section-shell grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-        <Reveal>
+    <section id="о-компании" className="relative overflow-hidden bg-graphite py-24 md:py-36">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_78%_28%,rgba(141,160,184,0.14),transparent_32%)]" />
+      <div className="section-shell relative z-10">
+        <Reveal className="mb-8">
           <p className="mb-4 text-sm uppercase tracking-[0.28em] text-ember">О компании</p>
-          <h2 className="text-5xl font-semibold md:text-7xl">Jagger Garage</h2>
-          <p className="mt-6 text-2xl text-white/84">Инженерная компания полного цикла.</p>
-          <p className="mt-6 max-w-xl text-lg leading-8 text-white/62">
-            От цифровой модели до серийного производства. Каждая машина разрабатывается и производится с применением современных технологий проектирования и ориентирована на эксплуатацию в самых тяжелых условиях.
-          </p>
-          <div className="mt-10 grid gap-3 sm:grid-cols-2">
-            {["Нефтегаз", "Геологоразведка", "Энергетика", "МЧС", "Экспедиции", "Госструктуры"].map((item) => (
-              <div key={item} className="rounded-[8px] border border-white/10 bg-white/[0.045] px-4 py-3 text-white/72">{item}</div>
-            ))}
-          </div>
+          <h2 className="text-balance text-5xl font-semibold md:text-7xl">Партнёрство инженерии и медиа</h2>
         </Reveal>
 
         <Reveal>
-          <form id="contacts" className="glass rounded-[8px] p-5 md:p-8">
-            <p className="mb-2 text-sm uppercase tracking-[0.28em] text-ember">Контакты</p>
-            <h3 className="text-3xl font-semibold md:text-4xl">Получить коммерческое предложение</h3>
-
-            <div className="mt-6 grid gap-3 md:grid-cols-2">
-              <a href={`tel:${contacts.phone}`} className="rounded-[8px] border border-white/10 bg-black/18 px-4 py-3 text-white/78 transition hover:border-ember/45 hover:text-white">
-                {contacts.phoneLabel}
-              </a>
-              <a href={`mailto:${contacts.email}`} className="rounded-[8px] border border-white/10 bg-black/18 px-4 py-3 text-white/78 transition hover:border-ember/45 hover:text-white">
-                {contacts.email}
-              </a>
-              <a href={contacts.telegram} target="_blank" rel="noreferrer" className="rounded-[8px] border border-white/10 bg-black/18 px-4 py-3 text-white/78 transition hover:border-ember/45 hover:text-white">
-                Telegram
-              </a>
-              <a href={contacts.vk} target="_blank" rel="noreferrer" className="rounded-[8px] border border-white/10 bg-black/18 px-4 py-3 text-white/78 transition hover:border-ember/45 hover:text-white">
-                VK
-              </a>
-            </div>
-
-            <div className="mt-8 grid gap-4 md:grid-cols-2">
-              {["Имя", "Компания", "Телефон", "E-mail"].map((label) => (
-                <label key={label} className="block">
-                  <span className="mb-2 block text-sm text-white/56">{label}</span>
-                  <input className="h-12 w-full rounded-[8px] border border-white/12 bg-black/22 px-4 text-white outline-none transition placeholder:text-white/28 focus:border-ember" placeholder={label} />
-                </label>
-              ))}
-
-              <label className="block md:col-span-2">
-                <span className="mb-2 block text-sm text-white/56">Комментарий</span>
-                <textarea className="min-h-32 w-full resize-none rounded-[8px] border border-white/12 bg-black/22 px-4 py-3 text-white outline-none transition placeholder:text-white/28 focus:border-ember" placeholder="Расскажите о задаче, регионе эксплуатации и количестве машин" />
-              </label>
-            </div>
-
-            <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-              <Button type="button" size="lg">Получить коммерческое предложение <Send size={18} /></Button>
-              <div className="flex gap-3 text-sm text-white/54">
-                <a href={`tel:${contacts.phone}`} className="flex items-center gap-2 transition hover:text-white"><Phone size={16} /> Звонок</a>
-                <a href={`mailto:${contacts.email}`} className="flex items-center gap-2 transition hover:text-white"><Mail size={16} /> E-mail</a>
+          <div id="contacts" className="mb-5 rounded-[8px] bg-white/[0.035] px-4 py-3 shadow-glass backdrop-blur-2xl md:px-5">
+            <div className="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
+              <div>
+                <p className="text-xs uppercase tracking-[0.28em] text-ember">Связь</p>
+                <h3 className="mt-1 text-xl font-semibold md:text-2xl">Контакты</h3>
+              </div>
+              <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-5">
+                <a href={`tel:${contacts.phone}`} className="flex items-center gap-3 rounded-[8px] bg-black/18 px-3 py-2.5 transition hover:bg-white/[0.06]">
+                  <Phone size={17} className="shrink-0 text-ember" />
+                  <span className="font-semibold text-white">{contacts.phoneLabel}</span>
+                </a>
+                <a href={`mailto:${contacts.email}`} className="flex items-center gap-3 rounded-[8px] bg-black/18 px-3 py-2.5 transition hover:bg-white/[0.06]">
+                  <Mail size={17} className="shrink-0 text-ember" />
+                  <span className="font-semibold text-white">{contacts.email}</span>
+                </a>
+                <a href={contacts.telegram} target="_blank" rel="noreferrer" className="flex items-center gap-3 rounded-[8px] bg-black/18 px-3 py-2.5 transition hover:bg-white/[0.06]">
+                  <Send size={17} className="shrink-0 text-ember" />
+                  <span className="font-semibold text-white">Telegram</span>
+                </a>
+                <a href={contacts.vk} target="_blank" rel="noreferrer" className="flex items-center gap-3 rounded-[8px] bg-black/18 px-3 py-2.5 transition hover:bg-white/[0.06]">
+                  <span className="flex h-[17px] w-[17px] shrink-0 items-center justify-center text-xs font-semibold text-ember">VK</span>
+                  <span className="font-semibold text-white">VK</span>
+                </a>
+                <a href={contacts.youtube} target="_blank" rel="noreferrer" className="flex items-center gap-3 rounded-[8px] bg-black/18 px-3 py-2.5 transition hover:bg-white/[0.06]">
+                  <span className="flex h-[17px] w-[17px] shrink-0 items-center justify-center text-xs font-semibold text-ember">▶</span>
+                  <span className="font-semibold text-white">YouTube</span>
+                </a>
               </div>
             </div>
-          </form>
+          </div>
+        </Reveal>
+
+        <div className="grid gap-5 lg:grid-cols-2">
+          <Reveal>
+            <div className="glass relative h-full overflow-hidden rounded-[8px] p-6 md:p-8"><div className="pointer-events-none absolute -right-16 -top-16 h-72 w-72 rounded-full bg-ember/12 blur-3xl" />
+              <div className="pointer-events-none absolute right-10 top-8 h-72 w-72 opacity-[0.1] md:right-16">
+
+                <Image src={`${BASE_PATH}/images/jagger-logo.svg`} alt="" fill sizes="320px" className="object-contain invert" />
+              </div>
+              <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(16,18,20,0.92)_0%,rgba(16,18,20,0.78)_46%,rgba(16,18,20,0.24)_100%)]" />
+              <p className="relative text-xs uppercase tracking-[0.28em] text-ember">Производство</p>
+              <h3 className="relative mt-5 text-4xl font-semibold md:text-5xl">Jagger Garage</h3>
+              <p className="relative mt-6 text-2xl text-white/84">Инженерная компания полного цикла.</p>
+              <p className="relative mt-6 max-w-xl text-lg leading-8 text-white/62">
+                От цифровой модели до серийного производства. Каждая машина разрабатывается и производится с применением современных технологий проектирования и ориентирована на эксплуатацию в самых тяжелых условиях.
+              </p>
+            </div>
+          </Reveal>
+
+          <Reveal>
+            <div className="relative h-full overflow-hidden rounded-[8px] border border-white/10 bg-white/[0.04] p-6 shadow-glass backdrop-blur-2xl md:p-8">
+              <div className="pointer-events-none absolute -right-16 -top-16 h-72 w-72 rounded-full bg-ember/12 blur-3xl" />
+              <div className="pointer-events-none absolute right-20 top-6 h-64 w-64 opacity-[0.2] md:right-28 md:top-8 md:h-80 md:w-80">
+                <span
+                  className="block h-full w-full bg-[linear-gradient(135deg,rgba(220,231,237,0.92),rgba(141,160,184,0.38))]"
+                  aria-hidden="true"
+                  style={{
+                    WebkitMaskImage: `url('${BASE_PATH}/images/akademig.svg')`,
+                    maskImage: `url('${BASE_PATH}/images/akademig.svg')`,
+                    WebkitMaskRepeat: "no-repeat",
+                    maskRepeat: "no-repeat",
+                    WebkitMaskPosition: "center",
+                    maskPosition: "center",
+                    WebkitMaskSize: "contain",
+                    maskSize: "contain",
+                  }}
+                />
+              </div>
+              <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(16,18,20,0.88)_0%,rgba(16,18,20,0.7)_44%,rgba(16,18,20,0.2)_100%)]" />
+              <p className="relative text-xs uppercase tracking-[0.28em] text-ember">Партнёр</p>
+              <h3 className="relative mt-4 text-4xl font-semibold md:text-5xl">Academeg</h3>
+              <p className="relative mt-8 max-w-xl text-xl leading-9 text-white/72">
+                Academeg - автомобильный блогер и партнёр проекта P-4, принимающий участие в развитии, испытаниях и популяризации машины.
+              </p>
+            </div>
+          </Reveal>
+        </div>
+
+        <Reveal className="mt-7 flex justify-center">
+          <Button asChild variant="secondary">
+            <Link href="/history">История компании <ChevronRight size={18} /></Link>
+          </Button>
         </Reveal>
       </div>
     </section>
