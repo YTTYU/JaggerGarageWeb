@@ -151,11 +151,11 @@ function Hero() {
         </p>
 
         <p className="mt-5 max-w-2xl text-lg leading-8 text-white/72 md:text-xl">
-          Создан для работы там, где заканчиваются дороги.
+          Для работы там, где заканчиваются дороги.
         </p>
 
         <div className="mt-8 flex max-w-5xl flex-wrap justify-center gap-3 text-sm text-white/76">
-          {["170 л.с.", "АКПП ZF", "2000 кг полезной нагрузки", "амфибийность", "скорость до 90 км/ч"].map((item) => (
+          {["Дизельный двигатель", "АКПП", "2000 кг полезной нагрузки", "амфибийность", "скорость до 90 км/ч"].map((item) => (
             <span key={item} className="rounded-[8px] border border-white/12 bg-carbon/44 px-4 py-2 backdrop-blur-xl">{item}</span>
           ))}
         </div>
@@ -217,6 +217,51 @@ function Advantages() {
   );
 }
 
+function AcademegSupport() {
+  return (
+    <section className="relative overflow-hidden bg-carbon py-16 md:py-24">
+      <div className="section-shell">
+        <Reveal>
+          <div className="relative overflow-hidden border-y border-white/14 py-12 text-center md:py-16">
+            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-ember/60 to-transparent" />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-ember/40 to-transparent" />
+            <div className="pointer-events-none absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-ember/12 blur-3xl" />
+
+            <div className="relative mx-auto flex max-w-3xl flex-col items-center">
+              <p className="text-xs font-semibold uppercase tracking-[0.34em] text-ember md:text-sm">
+                Проект создаётся при поддержке
+              </p>
+
+              <div className="mt-9 flex min-h-36 w-full max-w-md items-center justify-center rounded-[8px] border border-white/10 bg-white/[0.045] px-8 py-8 shadow-glass backdrop-blur-2xl">
+                <span
+                  className="block h-28 w-56 bg-ember drop-shadow-[0_0_34px_rgba(141,160,184,0.34)]"
+                  role="img"
+                  aria-label="Академиг"
+                  style={{
+                    WebkitMaskImage: `url('${BASE_PATH}/images/akademig.svg')`,
+                    maskImage: `url('${BASE_PATH}/images/akademig.svg')`,
+                    WebkitMaskRepeat: "no-repeat",
+                    maskRepeat: "no-repeat",
+                    WebkitMaskPosition: "center",
+                    maskPosition: "center",
+                    WebkitMaskSize: "contain",
+                    maskSize: "contain",
+                  }}
+                />
+              </div>
+
+              <p className="mt-9 max-w-2xl text-balance text-lg leading-8 text-white/72 md:text-xl md:leading-9">
+                Академиг — автомобильный блогер и технический партнёр проекта P-4, принимающий участие
+                в развитии, испытаниях и популяризации машины.
+              </p>
+            </div>
+          </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
 function Engineering() {
   return (
     <section id="технологии" className="relative overflow-hidden bg-[#0a0c0d] py-24 md:py-36">
@@ -227,7 +272,7 @@ function Engineering() {
           <p className="mb-4 text-sm uppercase tracking-[0.28em] text-ember">Технологии</p>
           <h2 className="text-balance text-4xl font-semibold leading-tight md:text-6xl">Инженерия без компромиссов</h2>
           <p className="mt-6 max-w-xl text-lg leading-8 text-white/64">
-            P-4 проектируется как промышленная платформа: тяговитый дизель, автоматическая трансмиссия, длинноходная подвеска и гусеничный движитель для слабонесущих грунтов.
+            P-4 спроектирован как промышленная платформа: тяговитый дизель, автоматическая трансмиссия, длинноходная подвеска и гусеничный движитель для слабонесущих грунтов.
           </p>
         </Reveal>
 
@@ -526,6 +571,7 @@ function AnimatedPage() {
       <Header />
       <Hero />
       <Advantages />
+      <AcademegSupport />
       <Engineering />
       <Transport />
       <Cabin />
