@@ -65,11 +65,11 @@ export default function ModifierPage() {
 
       <header className="relative z-10 px-4 pt-4">
         <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between rounded-[8px] border border-white/10 bg-carbon/58 px-4 shadow-glass backdrop-blur-2xl md:px-6">
-          <Link href={`${BASE_PATH}/`} className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.18em] text-white">
+          <Link href='/' className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.18em] text-white">
             Jagger Garage
           </Link>
           <Button asChild variant="secondary">
-            <Link href={`${BASE_PATH}/`}>
+            <Link href='/'>
               <ArrowLeft size={18} />
               На главную
             </Link>

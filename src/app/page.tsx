@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import gsap from "gsap";
 import { ArrowDown, ArrowRight, Check, ChevronRight, Gauge, Mail, Menu, Phone, Send, Shield, Truck } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import type { PointerEvent } from "react";
 import { useEffect, useRef, useState } from "react";
 import { CursorField } from "@/components/CursorField";
@@ -96,22 +97,25 @@ function Header() {
           <Image src={`${BASE_PATH}/images/jagger-logo.svg`} alt="" width={28} height={28} className="invert" />
           <span className="text-xs uppercase md:text-sm">Jagger Garage</span>
         </a>
+
         <nav className="hide-scrollbar hidden items-center gap-1 overflow-x-auto md:flex">
           {nav.map((item) => (
             <a key={item} href={`#${item.toLowerCase().replace(" ", "-")}`} className="rounded-[8px] px-3 py-2 text-sm text-white/68 transition hover:bg-white/[0.08] hover:text-white">
               {item}
             </a>
           ))}
-          <a href={`${BASE_PATH}/modifier`} className="rounded-[8px] border border-ember/35 bg-ember/10 px-3 py-2 text-sm text-white transition hover:bg-ember/18">
+          <Link href="/modifier" className="rounded-[8px] border border-ember/35 bg-ember/10 px-3 py-2 text-sm text-white transition hover:bg-ember/18">
             Модификатор
-          </a>
+          </Link>
         </nav>
+
         <a
           href={`tel:${contacts.phone}`}
           className="hidden rounded-[8px] border border-ember/35 bg-ember/10 px-4 py-2 text-sm font-semibold text-white transition hover:bg-ember/18 lg:inline-flex"
         >
           {contacts.phoneLabel}
         </a>
+
         <Button asChild variant="ghost" size="icon" className="md:hidden" aria-label="Меню">
           <a href="#contacts"><Menu size={20} /></a>
         </Button>
@@ -128,33 +132,49 @@ function Hero() {
   return (
     <section id="top" className="relative min-h-[100svh] overflow-hidden">
       <div className="absolute inset-0 fine-grid opacity-40" />
-      <P41Scene />
+
+      <div className="absolute inset-0 scale-[1.35] md:scale-100">
+        <P41Scene />
+      </div>
+
       <motion.div style={{ y, opacity }} className="section-shell pointer-events-none relative z-10 flex min-h-[100svh] flex-col items-center justify-center pt-28 text-center">
         <div className="mb-5 rounded-[8px] border border-white/12 bg-white/[0.055] px-4 py-2 text-xs uppercase tracking-[0.28em] text-ice/82 backdrop-blur-xl">
           Серийное производство высокопроходимой техники
         </div>
+
         <h1 className="text-balance text-[clamp(64px,12vw,172px)] font-semibold leading-none tracking-normal text-white">
           P-4
         </h1>
+
         <p className="mt-4 text-balance text-[clamp(24px,4vw,54px)] font-medium leading-tight text-white">
           Снегоболотоход нового поколения
         </p>
+
         <p className="mt-5 max-w-2xl text-lg leading-8 text-white/72 md:text-xl">
           Создан для работы там, где заканчиваются дороги.
         </p>
+
         <div className="mt-8 flex max-w-5xl flex-wrap justify-center gap-3 text-sm text-white/76">
           {["170 л.с.", "АКПП ZF", "2000 кг полезной нагрузки", "амфибийность", "скорость до 90 км/ч"].map((item) => (
             <span key={item} className="rounded-[8px] border border-white/12 bg-carbon/44 px-4 py-2 backdrop-blur-xl">{item}</span>
           ))}
         </div>
+
         <div className="pointer-events-auto mt-9 flex flex-col gap-3 sm:flex-row">
-          <Button asChild size="lg"><a href="#contacts">Получить коммерческое предложение <Send size={18} /></a></Button>
-          <Button asChild size="lg" className="w-full sm:w-auto [&_*]:pointer-events-none">
-            <a href={`${BASE_PATH}/modifier`}>Открыть модификатор <ArrowRight size={18} /></a>
+          <Button asChild size="lg">
+            <a href="#contacts">Получить коммерческое предложение <Send size={18} /></a>
           </Button>
-          <Button asChild size="lg" variant="secondary"><a href="#характеристики">Изучить характеристики <ArrowDown size={18} /></a></Button>
+
+          <Button asChild size="lg" className="w-full sm:w-auto [&_*]:pointer-events-none">
+            <Link href="/modifier">Открыть модификатор <ArrowRight size={18} /></Link>
+          </Button>
+
+          <Button asChild size="lg" variant="secondary">
+            <a href="#характеристики">Изучить характеристики <ArrowDown size={18} /></a>
+          </Button>
         </div>
       </motion.div>
+
       <div className="absolute bottom-0 left-0 right-0 z-10 h-36 bg-gradient-to-t from-carbon to-transparent" />
     </section>
   );
@@ -175,6 +195,7 @@ function Advantages() {
             Инженерная машина для нефтегаза, геологоразведки, энергетики, лесной промышленности, строительства и служб реагирования.
           </p>
         </Reveal>
+
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {advantages.map(([title, kicker, text], index) => (
             <Reveal key={title}>
@@ -200,6 +221,7 @@ function Engineering() {
   return (
     <section id="технологии" className="relative overflow-hidden bg-[#0a0c0d] py-24 md:py-36">
       <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/24 to-transparent" />
+
       <div className="section-shell grid gap-10 lg:grid-cols-[1fr_1.08fr] lg:items-center">
         <Reveal>
           <p className="mb-4 text-sm uppercase tracking-[0.28em] text-ember">Технологии</p>
@@ -208,6 +230,7 @@ function Engineering() {
             P-4 проектируется как промышленная платформа: тяговитый дизель, автоматическая трансмиссия, длинноходная подвеска и гусеничный движитель для слабонесущих грунтов.
           </p>
         </Reveal>
+
         <Reveal className="relative min-h-[520px] overflow-hidden rounded-[8px]">
           <Image src={`${BASE_PATH}/images/p41-hero-2.png`} alt="Снегоболотоход P-4" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" priority />
           <div className="absolute inset-0 bg-gradient-to-t from-carbon via-carbon/10 to-transparent" />
@@ -218,6 +241,7 @@ function Engineering() {
           </div>
         </Reveal>
       </div>
+
       <div className="section-shell mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         {engineering.map(([title, statA, statB, text]) => (
           <Reveal key={title}>
@@ -239,7 +263,7 @@ function Engineering() {
 function Transport() {
   return (
     <section className="bg-graphite py-24 md:py-36">
-      <div className="section-shell">   
+      <div className="section-shell">
         <Reveal className="mb-10 grid gap-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-end">
           <div>
             <p className="mb-4 text-sm uppercase tracking-[0.28em] text-ember">Транспортировка</p>
@@ -250,10 +274,11 @@ function Transport() {
               Машина адаптируется под доставку полуприцепом, эвакуатором и морским контейнером.
             </p>
             <Button asChild className="mt-6">
-              <a href={`${BASE_PATH}/modifier`}>Выбрать модификацию <ChevronRight size={18} /></a>
+              <Link href="/modifier">Выбрать модификацию <ChevronRight size={18} /></Link>
             </Button>
           </div>
         </Reveal>
+
         <div className="grid gap-4 lg:grid-cols-3">
           {[
             [`${BASE_PATH}/images/p41-front.png`, "Рабочее", "Полный дорожный просвет и готовность к эксплуатации."],
@@ -286,6 +311,7 @@ function Cabin() {
           <Image src={`${BASE_PATH}/images/p41-cabin.png`} alt="Салон P-4" fill sizes="(min-width: 1024px) 58vw, 100vw" className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-transparent to-carbon/42" />
         </Reveal>
+
         <Reveal>
           <p className="mb-4 text-sm uppercase tracking-[0.28em] text-ember">Кабина</p>
           <h2 className="text-balance text-4xl font-semibold leading-tight md:text-6xl">Комфорт автомобильного уровня</h2>
@@ -312,8 +338,11 @@ function Specs() {
             <p className="mb-4 text-sm uppercase tracking-[0.28em] text-ember">Характеристики</p>
             <h2 className="text-4xl font-semibold md:text-6xl">Технические данные</h2>
           </div>
-          <Button asChild variant="secondary"><a href="#contacts">Запросить спецификацию <ChevronRight size={18} /></a></Button>
+          <Button asChild variant="secondary">
+            <a href="#contacts">Запросить спецификацию <ChevronRight size={18} /></a>
+          </Button>
         </Reveal>
+
         <Reveal>
           <div className="overflow-hidden rounded-[8px] border border-white/12 bg-white/[0.04]">
             {specs.map(([name, value], index) => (
@@ -381,6 +410,7 @@ function Gallery() {
           </h2>
         </Reveal>
       </div>
+
       <div
         ref={galleryRef}
         onPointerDown={handleGalleryPointerDown}
@@ -426,10 +456,12 @@ function CompanyAndContacts() {
             ))}
           </div>
         </Reveal>
+
         <Reveal>
           <form id="contacts" className="glass rounded-[8px] p-5 md:p-8">
             <p className="mb-2 text-sm uppercase tracking-[0.28em] text-ember">Контакты</p>
             <h3 className="text-3xl font-semibold md:text-4xl">Получить коммерческое предложение</h3>
+
             <div className="mt-6 grid gap-3 md:grid-cols-2">
               <a href={`tel:${contacts.phone}`} className="rounded-[8px] border border-white/10 bg-black/18 px-4 py-3 text-white/78 transition hover:border-ember/45 hover:text-white">
                 {contacts.phoneLabel}
@@ -444,6 +476,7 @@ function CompanyAndContacts() {
                 VK
               </a>
             </div>
+
             <div className="mt-8 grid gap-4 md:grid-cols-2">
               {["Имя", "Компания", "Телефон", "E-mail"].map((label) => (
                 <label key={label} className="block">
@@ -451,11 +484,13 @@ function CompanyAndContacts() {
                   <input className="h-12 w-full rounded-[8px] border border-white/12 bg-black/22 px-4 text-white outline-none transition placeholder:text-white/28 focus:border-ember" placeholder={label} />
                 </label>
               ))}
+
               <label className="block md:col-span-2">
                 <span className="mb-2 block text-sm text-white/56">Комментарий</span>
                 <textarea className="min-h-32 w-full resize-none rounded-[8px] border border-white/12 bg-black/22 px-4 py-3 text-white outline-none transition placeholder:text-white/28 focus:border-ember" placeholder="Расскажите о задаче, регионе эксплуатации и количестве машин" />
               </label>
             </div>
+
             <div className="mt-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
               <Button type="button" size="lg">Получить коммерческое предложение <Send size={18} /></Button>
               <div className="flex gap-3 text-sm text-white/54">
@@ -497,6 +532,7 @@ function AnimatedPage() {
       <Specs />
       <Gallery />
       <CompanyAndContacts />
+
       <footer className="border-t border-white/10 bg-carbon px-4 py-10 text-sm text-white/58">
         <div className="section-shell grid gap-8 md:grid-cols-[1.1fr_1fr_1fr]">
           <div>
@@ -504,6 +540,7 @@ function AnimatedPage() {
             <p className="mt-3 max-w-sm leading-6 text-white/48">Jagger Garage. Все права защищены</p>
             <p className="mt-2 max-w-sm leading-6 text-white/48">Информация на сайте не является публичной офертой</p>
           </div>
+
           <div>
             <p className="mb-3 text-xs uppercase tracking-[0.24em] text-ember">Контакты</p>
             <div className="grid gap-2">
@@ -511,6 +548,7 @@ function AnimatedPage() {
               <a href={`mailto:${contacts.email}`} className="transition hover:text-white">{contacts.email}</a>
             </div>
           </div>
+
           <div>
             <p className="mb-3 text-xs uppercase tracking-[0.24em] text-ember">Соцсети</p>
             <div className="flex flex-wrap gap-3">
@@ -518,9 +556,10 @@ function AnimatedPage() {
               <a href={contacts.youtube} target="_blank" rel="noreferrer" className="rounded-[8px] border border-white/10 px-3 py-2 transition hover:border-ember/45 hover:text-white">YouTube</a>
               <a href={contacts.telegram} target="_blank" rel="noreferrer" className="rounded-[8px] border border-white/10 px-3 py-2 transition hover:border-ember/45 hover:text-white">Telegram</a>
             </div>
-            <a href={`${BASE_PATH}/privacy`} className="mt-5 inline-flex text-white/70 underline-offset-4 transition hover:text-white hover:underline">
+
+            <Link href="/privacy" className="mt-5 inline-flex text-white/70 underline-offset-4 transition hover:text-white hover:underline">
               Политика конфиденциальности
-            </a>
+            </Link>
           </div>
         </div>
       </footer>
@@ -535,4 +574,3 @@ export default function Home() {
     </LenisProvider>
   );
 }
-
