@@ -41,6 +41,16 @@ export default function HistoryPage() {
               созданной для тяжелых условий и серийного производства.
             </p>
 
+            <div className="mt-8 overflow-hidden rounded-[8px] border border-white/10 bg-black shadow-glass">
+              <video
+                src="/video/history.mp4"
+                controls
+                preload="metadata"
+                playsInline
+                className="aspect-video w-full bg-black object-cover"
+              />
+            </div>
+
             <div className="mt-10 grid grid-cols-2 gap-3">
               {milestones.map(([value, label]) => (
                 <div
