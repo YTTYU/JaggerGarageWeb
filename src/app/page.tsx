@@ -43,18 +43,22 @@ const advantageGroups = [
       {
         title: "Резинокордовые гусеницы",
         text: "Бесшумность работы, отсутствие ограничений по типу поверхности, отсутствие обмерзания и большой срок эксплуатации.",
+        href: "/specs#tracks",
       },
       {
         title: "Скорость до 90 км/ч",
         text: "Высокая мобильность между объектами без ущерба проходимости. Скорость на воде — до 6 км/ч.",
+        href: "/specs",
       },
       {
         title: "Амфибийность",
         text: "P-4 может выходить на воду без дополнительной подготовки. Геометрия кузова рассчитана для уверенного движения по воде, а поднятые борта позволяют выходить на берег практически в любом подходящем месте.",
+        href: "/specs#amphibious",
       },
       {
         title: "Автомобильный комфорт",
         text: "Привычные органы управления, просторная кабина и эргономика для длительных смен.",
+        href: "/specs#comfort",
       },
     ],
   },
@@ -64,18 +68,22 @@ const advantageGroups = [
       {
         title: "Движение по асфальту",
         text: "Резиновые гусеницы сохраняют твёрдое покрытие и позволяют работать без ограничений по типу поверхности.",
+        href: "/specs#tracks",
       },
       {
         title: "Контейнерная транспортировка",
         text: "Упрощённая логистика полуприцепом, эвакуатором или морским контейнером.",
+        href: "/specs#transport",
       },
       {
         title: "Дополнительное оборудование",
         text: "Модульная конструкция P-4 позволяет устанавливать КМУ, вышки, сварочные модули, навесное и гидравлическое оборудование, снегоочистительный вал, аутригеры и буровые установки.",
+        href: "/specs#equipment",
       },
       {
         title: "Обслуживание из салона",
         text: "Основные узлы доступны без выхода наружу, в том числе при тяжелой погоде и автономной эксплуатации.",
+        href: "/specs#comfort",
       },
     ],
   },
@@ -266,12 +274,17 @@ function Advantages() {
               <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
                 {group.items.map((item) => (
                   <Reveal key={item.title}>
-                    <Card className="group min-h-[250px] overflow-hidden border-white/8 bg-white/[0.035] transition duration-300 hover:-translate-y-1 hover:border-ember/36 hover:bg-white/[0.055]">
-                      <CardContent>
-                        <h3 className="mb-5 text-2xl font-semibold leading-tight text-white md:text-[28px]">{item.title}</h3>
-                        <p className="leading-7 text-white/62">{item.text}</p>
-                      </CardContent>
-                    </Card>
+                    <Link href={item.href} className="block h-full">
+                      <Card className="group min-h-[250px] overflow-hidden border-white/8 bg-white/[0.035] transition duration-300 hover:-translate-y-1 hover:border-ember/36 hover:bg-white/[0.055]">
+                        <CardContent>
+                          <h3 className="mb-5 text-2xl font-semibold leading-tight text-white md:text-[28px]">{item.title}</h3>
+                          <p className="leading-7 text-white/62">{item.text}</p>
+                          <span className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-steel transition group-hover:text-white">
+                            Подробнее <ChevronRight size={16} />
+                          </span>
+                        </CardContent>
+                      </Card>
+                    </Link>
                   </Reveal>
                 ))}
               </div>
@@ -405,7 +418,7 @@ function Specs() {
             <h2 className="text-4xl font-semibold md:text-6xl">Технические данные</h2>
           </div>
           <Button asChild variant="secondary">
-            <a href="#contacts">Запросить спецификацию <ChevronRight size={18} /></a>
+            <Link href="/specs">Подробные характеристики <ChevronRight size={18} /></Link>
           </Button>
         </Reveal>
 
