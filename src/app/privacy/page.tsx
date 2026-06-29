@@ -1,6 +1,7 @@
 import { readFileSync } from "node:fs";
 import Link from "next/link";
 import path from "path";
+import { BASE_PATH } from "@/lib/base-path";
 
 const privacyText = readFileSync(
   path.join(process.cwd(), "public", "privacy.txt"),
@@ -13,10 +14,10 @@ export default function PrivacyPage() {
       <div className="absolute inset-0 fine-grid opacity-20" />
       <div className="section-shell relative z-10">
         <div className="mb-8 flex items-center justify-between gap-4 rounded-[8px] border border-white/10 bg-carbon/58 px-4 py-4 shadow-glass backdrop-blur-2xl md:px-6">
-          <Link href="/" className="text-sm font-semibold uppercase tracking-[0.18em] text-white">
+          <Link href={`${BASE_PATH}/`} className="text-sm font-semibold uppercase tracking-[0.18em] text-white">
             Jagger Garage
           </Link>
-          <Link href="/" className="rounded-[8px] border border-white/12 px-4 py-2 text-sm text-white/70 transition hover:border-ember/45 hover:text-white">
+          <Link href={`${BASE_PATH}/`} className="rounded-[8px] border border-white/12 px-4 py-2 text-sm text-white/70 transition hover:border-ember/45 hover:text-white">
             На главную
           </Link>
         </div>

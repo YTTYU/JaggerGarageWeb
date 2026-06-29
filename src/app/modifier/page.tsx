@@ -6,31 +6,32 @@ import Link from "next/link";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { BASE_PATH } from "@/lib/base-path";
 
 const variants = [
   {
     id: "single",
     title: "Одиночная кабина",
     subtitle: "3 посадочных места",
-    image: "/images/modifier/single-cab.png",
+    image: `${BASE_PATH}/images/modifier/single-cab.png`,
   },
   {
     id: "double",
     title: "Двойная кабина",
     subtitle: "5 посадочных мест",
-    image: "/images/modifier/double-cab.png",
+    image: `${BASE_PATH}/images/modifier/double-cab.png`,
   },
   {
     id: "bus",
     title: "Автобус",
     subtitle: "пассажирская версия",
-    image: "/images/modifier/bus.png"
+    image: `${BASE_PATH}/images/modifier/bus.png`
   },
   {
     id: "tent",
     title: "Тент",
     subtitle: "грузовая версия с тентом",
-    image: "/images/modifier/tent.png",
+    image: `${BASE_PATH}/images/modifier/tent.png`,
   },
 ];
 
@@ -40,13 +41,13 @@ const trackOptions = [
   {
     id: "high",
     title: "Полотно с высоким грунтозацепом",
-    image: "/images/modifier/track-high-tread.png",
+    image: `${BASE_PATH}/images/modifier/track-high-tread.png`,
     details: ["слабонесущие грунты", "болота", "снег", "торфяники", "максимальная тяга"],
   },
   {
     id: "low",
     title: "Полотно с низким профилем",
-    image: "/images/modifier/track-low-profile.png",
+    image: `${BASE_PATH}/images/modifier/track-low-profile.png`,
     details: ["твёрдые грунты", "смешанная эксплуатация", "длительные перегоны", "движение по дорогам"],
   },
 ];
@@ -64,11 +65,11 @@ export default function ModifierPage() {
 
       <header className="relative z-10 px-4 pt-4">
         <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between rounded-[8px] border border-white/10 bg-carbon/58 px-4 shadow-glass backdrop-blur-2xl md:px-6">
-          <Link href="/" className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.18em] text-white">
+          <Link href={`${BASE_PATH}/`} className="flex items-center gap-3 text-sm font-semibold uppercase tracking-[0.18em] text-white">
             Jagger Garage
           </Link>
           <Button asChild variant="secondary">
-            <Link href="/">
+            <Link href={`${BASE_PATH}/`}>
               <ArrowLeft size={18} />
               На главную
             </Link>
@@ -160,7 +161,7 @@ export default function ModifierPage() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_12%,rgba(141,160,184,0.24),transparent_34%),linear-gradient(90deg,rgba(5,6,7,0.96)_0%,rgba(10,12,14,0.88)_48%,rgba(5,6,7,0.98)_100%)]" />
             <div className="absolute -right-[18%] -top-28 h-[520px] w-[118%] opacity-[0.42] md:-right-[10%] md:-top-36 md:h-[760px] md:w-[92%]">
               <Image
-                src="/images/modifier/tracks-decor.png"
+                src={`${BASE_PATH}/images/modifier/tracks-decor.png`}
                 alt=""
                 fill
                 sizes="90vw"
@@ -232,12 +233,12 @@ export default function ModifierPage() {
           {[
             {
               title: "Обычная шарнирная гусеница",
-              image: "/images/modifier/hinged-pressure.png",
+              image: `${BASE_PATH}/images/modifier/hinged-pressure.png`,
               text: "Нагрузка концентрируется на отдельных траках, создавая локальные пики давления на грунт.",
             },
             {
               title: "Резинокордовое полотно P-4",
-              image: "/images/modifier/rubbercord-pressure.png",
+              image: `${BASE_PATH}/images/modifier/rubbercord-pressure.png`,
               text: "Более равномерное распределение нагрузки благодаря продольной упругости полотна и системе гидравлического натяжения.",
             },
           ].map((item) => (

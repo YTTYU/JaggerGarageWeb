@@ -11,6 +11,7 @@ import { LenisProvider } from "@/components/LenisProvider";
 import { P41Scene } from "@/components/P41Scene";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { BASE_PATH } from "@/lib/base-path";
 
 const nav = ["Технологии", "Характеристики", "Галерея", "О компании"];
 
@@ -65,12 +66,12 @@ const cabin = [
 ];
 
 const gallery = [
-  ["/images/p41-hero.png", "Фронтальный ракурс P-4"],
-  ["/images/p41-cabin.png", "Кабина P-4"],
-  ["/images/p41-front.png", "Передняя проекция"],
-  ["/images/p41-rear.png", "Задняя проекция"],
-  ["/images/p41-front-clay.png", "Инженерный вид спереди"],
-  ["/images/p41-rear-clay.png", "Инженерный вид сзади"],
+  [`${BASE_PATH}/images/p41-hero.png`, "Фронтальный ракурс P-4"],
+  [`${BASE_PATH}/images/p41-cabin.png`, "Кабина P-4"],
+  [`${BASE_PATH}/images/p41-front.png`, "Передняя проекция"],
+  [`${BASE_PATH}/images/p41-rear.png`, "Задняя проекция"],
+  [`${BASE_PATH}/images/p41-front-clay.png`, "Инженерный вид спереди"],
+  [`${BASE_PATH}/images/p41-rear-clay.png`, "Инженерный вид сзади"],
 ];
 
 function Reveal({ children, className = "" }: { children: React.ReactNode; className?: string }) {
@@ -92,7 +93,7 @@ function Header() {
     <header className="fixed left-0 right-0 top-0 z-50 px-4 pt-4">
       <div className="mx-auto flex h-16 max-w-[1440px] items-center justify-between rounded-[8px] border border-white/10 bg-carbon/58 px-4 shadow-glass backdrop-blur-2xl md:px-6">
         <a href="#top" className="flex items-center gap-3 font-semibold tracking-[0.18em] text-white">
-          <Image src="/images/jagger-logo.svg" alt="" width={28} height={28} className="invert" />
+          <Image src={`${BASE_PATH}/images/jagger-logo.svg`} alt="" width={28} height={28} className="invert" />
           <span className="text-xs uppercase md:text-sm">Jagger Garage</span>
         </a>
         <nav className="hide-scrollbar hidden items-center gap-1 overflow-x-auto md:flex">
@@ -101,7 +102,7 @@ function Header() {
               {item}
             </a>
           ))}
-          <a href="/modifier" className="rounded-[8px] border border-ember/35 bg-ember/10 px-3 py-2 text-sm text-white transition hover:bg-ember/18">
+          <a href={`${BASE_PATH}/modifier`} className="rounded-[8px] border border-ember/35 bg-ember/10 px-3 py-2 text-sm text-white transition hover:bg-ember/18">
             Модификатор
           </a>
         </nav>
@@ -149,7 +150,7 @@ function Hero() {
         <div className="pointer-events-auto mt-9 flex flex-col gap-3 sm:flex-row">
           <Button asChild size="lg"><a href="#contacts">Получить коммерческое предложение <Send size={18} /></a></Button>
           <Button asChild size="lg" className="w-full sm:w-auto [&_*]:pointer-events-none">
-            <a href="/modifier">Открыть модификатор <ArrowRight size={18} /></a>
+            <a href={`${BASE_PATH}/modifier`}>Открыть модификатор <ArrowRight size={18} /></a>
           </Button>
           <Button asChild size="lg" variant="secondary"><a href="#характеристики">Изучить характеристики <ArrowDown size={18} /></a></Button>
         </div>
@@ -208,7 +209,7 @@ function Engineering() {
           </p>
         </Reveal>
         <Reveal className="relative min-h-[520px] overflow-hidden rounded-[8px]">
-          <Image src="/images/p41-hero-2.png" alt="Снегоболотоход P-4" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" priority />
+          <Image src={`${BASE_PATH}/images/p41-hero-2.png`} alt="Снегоболотоход P-4" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" priority />
           <div className="absolute inset-0 bg-gradient-to-t from-carbon via-carbon/10 to-transparent" />
           <div className="absolute bottom-5 left-5 right-5 grid grid-cols-3 gap-2">
             {["Рабочее", "Транспортное", "Контейнерное"].map((item) => (
@@ -249,15 +250,15 @@ function Transport() {
               Машина адаптируется под доставку полуприцепом, эвакуатором и морским контейнером.
             </p>
             <Button asChild className="mt-6">
-              <a href="/modifier">Выбрать модификацию <ChevronRight size={18} /></a>
+              <a href={`${BASE_PATH}/modifier`}>Выбрать модификацию <ChevronRight size={18} /></a>
             </Button>
           </div>
         </Reveal>
         <div className="grid gap-4 lg:grid-cols-3">
           {[
-            ["/images/p41-front.png", "Рабочее", "Полный дорожный просвет и готовность к эксплуатации."],
-            ["/images/p41-rear.png", "Транспортное", "Сниженная высота и удобная фиксация для перевозки."],
-            ["/images/p41-front-clay.png", "Контейнерное", "Конфигурация для морского контейнера и дальней доставки."],
+            [`${BASE_PATH}/images/p41-front.png`, "Рабочее", "Полный дорожный просвет и готовность к эксплуатации."],
+            [`${BASE_PATH}/images/p41-rear.png`, "Транспортное", "Сниженная высота и удобная фиксация для перевозки."],
+            [`${BASE_PATH}/images/p41-front-clay.png`, "Контейнерное", "Конфигурация для морского контейнера и дальней доставки."],
           ].map(([src, title, text]) => (
             <Reveal key={title}>
               <div className="group overflow-hidden rounded-[8px] border border-white/10 bg-white/[0.045]">
@@ -282,7 +283,7 @@ function Cabin() {
     <section className="relative overflow-hidden bg-carbon py-24 md:py-36">
       <div className="section-shell grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
         <Reveal className="relative min-h-[520px] overflow-hidden rounded-[8px] border border-white/10">
-          <Image src="/images/p41-cabin.png" alt="Салон P-4" fill sizes="(min-width: 1024px) 58vw, 100vw" className="object-cover" />
+          <Image src={`${BASE_PATH}/images/p41-cabin.png`} alt="Салон P-4" fill sizes="(min-width: 1024px) 58vw, 100vw" className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-transparent to-carbon/42" />
         </Reveal>
         <Reveal>
@@ -517,7 +518,7 @@ function AnimatedPage() {
               <a href={contacts.youtube} target="_blank" rel="noreferrer" className="rounded-[8px] border border-white/10 px-3 py-2 transition hover:border-ember/45 hover:text-white">YouTube</a>
               <a href={contacts.telegram} target="_blank" rel="noreferrer" className="rounded-[8px] border border-white/10 px-3 py-2 transition hover:border-ember/45 hover:text-white">Telegram</a>
             </div>
-            <a href="/privacy" className="mt-5 inline-flex text-white/70 underline-offset-4 transition hover:text-white hover:underline">
+            <a href={`${BASE_PATH}/privacy`} className="mt-5 inline-flex text-white/70 underline-offset-4 transition hover:text-white hover:underline">
               Политика конфиденциальности
             </a>
           </div>
@@ -534,3 +535,4 @@ export default function Home() {
     </LenisProvider>
   );
 }
+

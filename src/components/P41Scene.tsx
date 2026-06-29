@@ -1,10 +1,11 @@
 import Image from "next/image";
+import { BASE_PATH } from "@/lib/base-path";
 
 export function P41Scene() {
   return (
     <div className="absolute inset-0 z-0 overflow-hidden">
       <Image
-        src="/images/frontviewblack.png"
+        src={`${BASE_PATH}/images/frontviewblack.png`}
         alt="P-41 front view"
         fill
         priority
