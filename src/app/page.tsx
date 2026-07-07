@@ -138,15 +138,15 @@ const cabinFeatures = [
 ];
 
 const gallery = [
-    [`${BASE_PATH}/images/photo1.jpg`, "P-4 на природе"],
-    [`${BASE_PATH}/images/photo2.jpg`, "P-4 на природе"],
-    [`${BASE_PATH}/images/frame.jpeg`, "В железе"],
-    [`${BASE_PATH}/images/photo3.jpeg`, "В железе"],
-    [`${BASE_PATH}/images/photo4.png`, "Симуляция продувки радиатора"],
-  [`${BASE_PATH}/images/p41-hero.png`, "Фронтальный ракурс P-4"],
-  [`${BASE_PATH}/images/p41-cabin.png`, "Кабина P-4"],
-  [`${BASE_PATH}/images/p41-front.png`, "Передняя проекция"],
-  [`${BASE_PATH}/images/p41-rear.png`, "Задняя проекция"],
+    [`${BASE_PATH}/images/optimized/photo1.jpg`, "P-4 на природе"],
+    [`${BASE_PATH}/images/optimized/photo2.jpg`, "P-4 на природе"],
+    [`${BASE_PATH}/images/optimized/frame.jpg`, "В железе"],
+    [`${BASE_PATH}/images/optimized/photo3.jpg`, "В железе"],
+    [`${BASE_PATH}/images/optimized/photo4.jpg`, "Симуляция продувки радиатора"],
+  [`${BASE_PATH}/images/optimized/p41-hero.jpg`, "Фронтальный ракурс P-4"],
+  [`${BASE_PATH}/images/optimized/p41-cabin.jpg`, "Кабина P-4"],
+  [`${BASE_PATH}/images/optimized/p41-front.jpg`, "Передняя проекция"],
+  [`${BASE_PATH}/images/optimized/p41-rear.jpg`, "Задняя проекция"],
 ];
 
 function Reveal({ children, className = "" }: { children: React.ReactNode; className?: string }) {
@@ -314,7 +314,7 @@ function Engineering() {
         </Reveal>
 
         <Reveal className="relative min-h-[520px] overflow-hidden rounded-[8px]">
-          <Image src={`${BASE_PATH}/images/p41-hero-2.png`} alt="Снегоболотоход P-4" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" priority />
+          <Image src={`${BASE_PATH}/images/p41-hero-2.png`} alt="Снегоболотоход P-4" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-t from-carbon via-carbon/10 to-transparent" />
           <div className="hidden">
             {["Рабочее", "Транспортное", "Контейнерное"].map((item) => (
@@ -363,9 +363,9 @@ function Transport() {
 
         <div className="grid gap-4 lg:grid-cols-3">
           {[
-            [`${BASE_PATH}/images/p41-front.png`, "Рабочее", "Полный дорожный просвет и готовность к эксплуатации."],
-            [`${BASE_PATH}/images/p41-rear.png`, "Транспортное", "Сниженная высота и удобная фиксация для перевозки."],
-            [`${BASE_PATH}/images/p41-front-clay.png`, "Контейнерное", "Конфигурация для морского контейнера и дальней доставки."],
+            [`${BASE_PATH}/images/optimized/p41-front.jpg`, "Рабочее", "Полный дорожный просвет и готовность к эксплуатации."],
+            [`${BASE_PATH}/images/optimized/p41-rear.jpg`, "Транспортное", "Сниженная высота и удобная фиксация для перевозки."],
+            [`${BASE_PATH}/images/optimized/p41-front-clay.jpg`, "Контейнерное", "Конфигурация для морского контейнера и дальней доставки."],
           ].map(([src, title, text]) => (
             <Reveal key={title}>
               <div className="group overflow-hidden rounded-[8px] border border-white/10 bg-white/[0.045]">
@@ -390,7 +390,7 @@ function Cabin() {
     <section className="relative overflow-hidden bg-carbon py-24 md:py-36">
       <div className="section-shell grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
         <Reveal className="relative min-h-[520px] overflow-hidden rounded-[8px] border border-white/10">
-          <Image src={`${BASE_PATH}/images/p41-cabin2.png`} alt="Салон P-4" fill sizes="(min-width: 1024px) 58vw, 100vw" className="object-cover" />
+          <Image src={`${BASE_PATH}/images/optimized/p41-cabin2.jpg`} alt="Салон P-4" fill sizes="(min-width: 1024px) 58vw, 100vw" className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-transparent to-carbon/42" />
         </Reveal>
 
