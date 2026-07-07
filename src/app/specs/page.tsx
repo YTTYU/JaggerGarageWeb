@@ -1,5 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { ReactNode } from "react";
+import { BASE_PATH } from "@/lib/base-path";
 
 const sections = [
   ["engine", "Двигатель"],
@@ -81,6 +83,19 @@ const comparison = [
   ["Мощность", "170 л.с.", "108.8 л.с.", "240 л.с.", "73.4 л.с."],
   ["Трансмиссия", "ZF 6AT", "механическая 5-ступ.", "механическая", "полностью гидравлическая"],
   ["Привод", "задний", "передний", "передний", "передний"],
+];
+
+const trackComparison = [
+  {
+    title: "Обычная шарнирная гусеница",
+    image: `${BASE_PATH}/images/modifier/hinged-pressure.png`,
+    text: "Нагрузка концентрируется на отдельных траках, создавая локальные пики давления на грунт.",
+  },
+  {
+    title: "Резинокордовое полотно P-4",
+    image: `${BASE_PATH}/images/modifier/rubbercord-pressure.png`,
+    text: "Более равномерное распределение нагрузки благодаря продольной упругости полотна и системе гидравлического натяжения.",
+  },
 ];
 
 function SpecGrid({ items }: { items: string[][] }) {
@@ -196,6 +211,45 @@ export default function DetailedSpecsPage() {
                 давления и снижают вибрации, уплотняющие верхний слой слабого
                 грунта.
               </p>
+            </div>
+
+            <div className="mt-10 border-t border-white/10 pt-8">
+              <p className="mb-4 text-xs uppercase tracking-[0.24em] text-steel">
+                Инженерное сравнение
+              </p>
+              <h3 className="text-3xl font-semibold md:text-4xl">
+                Почему используется резинокордовое полотно
+              </h3>
+
+              <div className="mt-7 grid gap-4 lg:grid-cols-2">
+                {trackComparison.map((item) => (
+                  <div key={item.title} className="overflow-hidden rounded-[8px] border border-white/10 bg-black/18">
+                    <div className="relative min-h-[260px] border-b border-white/10 md:min-h-[380px]">
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        sizes="(min-width: 1024px) 42vw, 100vw"
+                        className="object-contain p-5 md:p-8"
+                      />
+                    </div>
+                    <div className="p-5 md:p-6">
+                      <h4 className="text-2xl font-semibold">{item.title}</h4>
+                      <p className="mt-4 leading-7 text-white/62">{item.text}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-4 rounded-[8px] bg-white/[0.045] p-5 md:p-6">
+                <div className="space-y-5 text-base leading-8 text-white/68">
+                  <p>Резинокордовое полотно отличается от шарнирного более равномерным распределением давления на грунт.</p>
+                  <p>Шарнирное полотно концентрирует нагрузку от каждого катка только на двух траках, создавая пики давления.</p>
+                  <p>Благодаря продольной упругости, гидравлическому натяжению и заднему приводу в конструкции P-4 достигается более равномерная эпюра распределения нагрузки.</p>
+                  <p>Дополнительным преимуществом является высокий демпфирующий эффект, снижающий вибрации и уменьшающий уплотнение слабонесущих грунтов.</p>
+                  <p>P-4 может работать на асфальте, бетоне и других твёрдых покрытиях без их повреждения.</p>
+                </div>
+              </div>
             </div>
           </Section>
 

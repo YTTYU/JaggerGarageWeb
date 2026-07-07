@@ -138,12 +138,15 @@ const cabinFeatures = [
 ];
 
 const gallery = [
+    [`${BASE_PATH}/images/photo1.jpg`, "P-4 на природе"],
+    [`${BASE_PATH}/images/photo2.jpg`, "P-4 на природе"],
+    [`${BASE_PATH}/images/frame.jpeg`, "В железе"],
+    [`${BASE_PATH}/images/photo3.jpeg`, "В железе"],
+    [`${BASE_PATH}/images/photo4.png`, "Симуляция продувки радиатора"],
   [`${BASE_PATH}/images/p41-hero.png`, "Фронтальный ракурс P-4"],
   [`${BASE_PATH}/images/p41-cabin.png`, "Кабина P-4"],
   [`${BASE_PATH}/images/p41-front.png`, "Передняя проекция"],
   [`${BASE_PATH}/images/p41-rear.png`, "Задняя проекция"],
-  [`${BASE_PATH}/images/p41-front-clay.png`, "Инженерный вид спереди"],
-  [`${BASE_PATH}/images/p41-rear-clay.png`, "Инженерный вид сзади"],
 ];
 
 function Reveal({ children, className = "" }: { children: React.ReactNode; className?: string }) {
@@ -201,14 +204,14 @@ function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.16], [1, 0.18]);
 
   return (
-    <section id="top" className="relative min-h-[100svh] overflow-hidden">
+    <section id="top" className="relative min-h-[100svh] overflow-hidden pb-10">
       <div className="pointer-events-none absolute inset-0 fine-grid opacity-40" />
 
       <div className="pointer-events-none absolute inset-0">
         <P41Scene />
       </div>
 
-      <motion.div style={{ y, opacity }} className="section-shell pointer-events-none relative z-10 flex min-h-[100svh] flex-col items-center justify-center pt-28 text-center">
+      <motion.div style={{ y, opacity }} className="section-shell relative z-20 flex min-h-[100svh] flex-col items-center justify-start pt-28 text-center sm:justify-center">
         <div className="mb-5 rounded-[8px] border border-white/12 bg-white/[0.055] px-4 py-2 text-xs uppercase tracking-[0.28em] text-ice/82 backdrop-blur-xl">
           Серийное производство высокопроходимой техники
         </div>
@@ -225,13 +228,13 @@ function Hero() {
           Для работы там, где заканчиваются дороги.
         </p>
 
-        <div className="mt-8 flex max-w-5xl flex-wrap justify-center gap-3 text-sm text-white/76">
+        <div className="mt-6 flex max-w-5xl flex-wrap justify-center gap-2 text-xs text-white/76 sm:mt-8 sm:gap-3 sm:text-sm">
           {["Дизельный двигатель", "АКПП", "2000 кг полезной нагрузки", "амфибийность", "скорость до 90 км/ч"].map((item) => (
             <span key={item} className="rounded-[8px] border border-white/12 bg-carbon/44 px-4 py-2 backdrop-blur-xl">{item}</span>
           ))}
         </div>
 
-        <div className="pointer-events-auto mt-9 flex w-full max-w-xl flex-col gap-3 sm:w-auto sm:max-w-none sm:flex-row">
+        <div className="relative z-30 mt-7 flex w-full max-w-xl flex-col gap-3 sm:mt-9 sm:w-auto sm:max-w-none sm:flex-row">
           <Button asChild size="lg" className="w-full sm:w-auto">
             <a href="#contacts">Связаться <Send size={18} /></a>
           </Button>
@@ -246,7 +249,7 @@ function Hero() {
         </div>
       </motion.div>
 
-      <div className="absolute bottom-0 left-0 right-0 z-10 h-36 bg-gradient-to-t from-carbon to-transparent" />
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 z-[2] h-36 bg-gradient-to-t from-carbon to-transparent" />
     </section>
   );
 }
@@ -387,7 +390,7 @@ function Cabin() {
     <section className="relative overflow-hidden bg-carbon py-24 md:py-36">
       <div className="section-shell grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
         <Reveal className="relative min-h-[520px] overflow-hidden rounded-[8px] border border-white/10">
-          <Image src={`${BASE_PATH}/images/p41-cabin.png`} alt="Салон P-4" fill sizes="(min-width: 1024px) 58vw, 100vw" className="object-cover" />
+          <Image src={`${BASE_PATH}/images/p41-cabin2.png`} alt="Салон P-4" fill sizes="(min-width: 1024px) 58vw, 100vw" className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-transparent to-carbon/42" />
         </Reveal>
 

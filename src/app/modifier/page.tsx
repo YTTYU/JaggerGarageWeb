@@ -222,51 +222,6 @@ export default function ModifierPage() {
           </div>
         </div>
 
-        <div className="mt-8">
-          <p className="mb-4 text-sm uppercase tracking-[0.28em] text-ember">Инженерное сравнение</p>
-          <h2 className="text-balance text-4xl font-semibold leading-tight md:text-6xl">
-            Почему используется резинокордовое полотно
-          </h2>
-        </div>
-
-        <div className="mt-8 grid gap-4 lg:grid-cols-2">
-          {[
-            {
-              title: "Обычная шарнирная гусеница",
-              image: `${BASE_PATH}/images/modifier/hinged-pressure.png`,
-              text: "Нагрузка концентрируется на отдельных траках, создавая локальные пики давления на грунт.",
-            },
-            {
-              title: "Резинокордовое полотно P-4",
-              image: `${BASE_PATH}/images/modifier/rubbercord-pressure.png`,
-              text: "Более равномерное распределение нагрузки благодаря продольной упругости полотна и системе гидравлического натяжения.",
-            },
-          ].map((item) => (
-            <Card key={item.title} className="overflow-hidden">
-              <CardContent className="p-0">
-                <div className="relative min-h-[300px] border-b border-white/10 md:min-h-[420px]">
-                  <Image src={item.image} alt={item.title} fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-contain p-5 md:p-8" />
-                </div>
-                <div className="p-5 md:p-6">
-                  <h3 className="text-2xl font-semibold">{item.title}</h3>
-                  <p className="mt-4 leading-7 text-white/62">{item.text}</p>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
-
-        <Card className="mt-4">
-          <CardContent>
-            <div className="space-y-5 text-base leading-8 text-white/68">
-              <p>Резинокордовое полотно отличается от шарнирного более равномерным распределением давления на грунт.</p>
-              <p>Шарнирное полотно концентрирует нагрузку от каждого катка только на двух траках, создавая пики давления.</p>
-              <p>Благодаря продольной упругости, гидравлическому натяжению и заднему приводу в конструкции P-4 достигается более равномерная эпюра распределения нагрузки.</p>
-              <p>Дополнительным преимуществом является высокий демпфирующий эффект, снижающий вибрации и уменьшающий уплотнение слабонесущих грунтов.</p>
-              <p>P-4 может работать на асфальте, бетоне и других твёрдых покрытиях без их повреждения.</p>
-            </div>
-          </CardContent>
-        </Card>
       </section>
     </main>
   );
