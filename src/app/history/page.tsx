@@ -5,34 +5,37 @@ import { BASE_PATH } from "@/lib/base-path";
 const storyBlocks = [
   {
     text: "Идея создать самый быстрый в мире гусеничный автомобиль на базе Bentley принадлежит Константину Заруцкому (известному как Академег). Для её реализации он обратился к мастерской Jagger Garage, где главным конструктором проекта стал Иван Турлаков — выпускник кафедры колесных и гусеничных машин (КГМ) СПбГПУ, с детства увлекавшийся постройкой вездеходов. Свой первый вездеход он собрал ещё в 15 лет.",
-    image: `${BASE_PATH}/images/story/story-05.jpg`,
+    image: `${BASE_PATH}/images/story/optimized/story-05.jpg`,
     caption: "Работа над ходовой частью в мастерской Jagger Garage.",
   },
   {
     text: "Главной технической сложностью проекта стали гусеницы: ни одна серийная модель не отвечала требованиям скорости и надежности. Специальные полотна изготовил завод «Композит», модернизировав свою снегоходную продукцию. Под них создали уникальное шасси, подвеску, на которую установили кузов от Bentley Continental. Так на свет появился «Ультратанк».",
-    image: `${BASE_PATH}/images/story/story-04.png`,
+    image: `${BASE_PATH}/images/story/optimized/story-04.jpg`,
     caption: "Завод «Композит» стал важной частью истории резинокордового полотна.",
+    align: "left",
   },
   {
     text: "Уже в 2019 году на испытаниях машина развила скорость 130 км/ч, превысив действующий мировой рекорд Книги Гиннесса (110 км/ч). А в конце того же года на льду Байкала был официально установлен рекорд России для гусеничной техники на ледяной трассе, составивший 125 км/ч.",
-    image: `${BASE_PATH}/images/story/story-13.png`,
+    image: `${BASE_PATH}/images/story/optimized/story-13.jpg`,
     caption: "Сертификат Книги рекордов России: 125,7 км/ч на льду Байкала.",
     portrait: true,
   },
   {
     text: "В процессе создания стало очевидно, что новое резинокордовое полотно перспективно, и под него решили спроектировать шасси. Так стартовал проект «П-2». Ключевой сложностью таких шасси с бортовым поворотом и длинноходной подвеской является риск схода гусеницы, поэтому полотно и подвеску необходимо было разрабатывать как единую систему.",
-    image: `${BASE_PATH}/images/story/story-06.jpg`,
+    image: `${BASE_PATH}/images/story/optimized/story-06.jpg`,
     caption: "Фрагмент резинокордового полотна Jagger Garage.",
+    align: "left",
   },
   {
     text: "На шасси «П-2» была реализована модульная концепция, позволяющая устанавливать любой кузов. Это наглядно продемонстрировали на Петербургском международном экономическом форуме (ПМЭФ), выставив два шасси: с кузовом Bentley-рекордсмена и с кузовом «Победы».",
-    image: `${BASE_PATH}/images/story/story-01.jpeg`,
+    image: `${BASE_PATH}/images/story/optimized/story-01.jpg`,
     caption: "Производственный процесс: от идеи к металлу.",
   },
   {
     text: "Но на этом парни не остановились и не начали продажи, а приступили к жесточайшим ходовым испытаниям, бросая вездеход в самые разные стихии, стараясь сломать её самыми ухищрёнными способами, пока на одном из выездов на лёд, проломили его и утопили шасси с кузовом Победы.",
-    image: `${BASE_PATH}/images/story/story-10.jpg`,
+    image: `${BASE_PATH}/images/story/optimized/story-10.jpg`,
     caption: "Испытания и доработка конструкции стали частью пути к серийной платформе.",
+    align: "left",
   },
 ];
 
@@ -91,25 +94,30 @@ export default function HistoryPage() {
             </div>
           </aside>
 
-          <article className="rounded-[8px] border border-white/10 bg-white/[0.045] p-6 shadow-glass backdrop-blur-2xl md:p-10">
-            <div className="space-y-9 text-lg leading-9 text-white/72">
+          <article className="rounded-[8px] bg-white/[0.035] p-6 shadow-glass backdrop-blur-2xl md:p-10">
+            <div className="space-y-8 text-lg leading-9 text-white/72">
               {storyBlocks.map((block) => (
-                <div key={block.text} className="space-y-5">
-                  <p>{block.text}</p>
-                  <figure className="overflow-hidden rounded-[8px] border border-white/10 bg-black/28">
-                    <div className={`relative ${block.portrait ? "aspect-[4/5]" : "aspect-video"}`}>
+                <div key={block.text} className="flow-root">
+                  <figure
+                    className={`mb-4 w-full sm:mb-3 sm:w-[38%] ${
+                      block.align === "left" ? "sm:float-left sm:mr-6" : "sm:float-right sm:ml-6"
+                    } ${block.portrait ? "sm:w-[30%]" : ""}`}
+                  >
+                    <div className={`relative overflow-hidden rounded-[6px] ${block.portrait ? "aspect-[4/5]" : "aspect-[4/3]"}`}>
                       <Image
                         src={block.image}
                         alt={block.caption}
                         fill
-                        sizes="(min-width: 1024px) 58vw, 100vw"
-                        className={block.portrait ? "object-contain p-3" : "object-cover"}
+                        sizes="(min-width: 1024px) 22vw, (min-width: 640px) 34vw, 100vw"
+                        loading="eager"
+                        className="object-cover"
                       />
                     </div>
-                    <figcaption className="border-t border-white/10 px-4 py-3 text-sm leading-6 text-white/48">
+                    <figcaption className="mt-2 text-sm leading-5 text-white/42">
                       {block.caption}
                     </figcaption>
                   </figure>
+                  <p>{block.text}</p>
                 </div>
               ))}
             </div>

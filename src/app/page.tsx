@@ -314,7 +314,7 @@ function Engineering() {
         </Reveal>
 
         <Reveal className="relative min-h-[520px] overflow-hidden rounded-[8px]">
-          <Image src={`${BASE_PATH}/images/p41-hero-2.png`} alt="Снегоболотоход P-4" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
+          <Image src={`${BASE_PATH}/images/optimized/p41-hero-2.jpg`} alt="Снегоболотоход P-4" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" loading="eager" />
           <div className="absolute inset-0 bg-gradient-to-t from-carbon via-carbon/10 to-transparent" />
           <div className="hidden">
             {["Рабочее", "Транспортное", "Контейнерное"].map((item) => (
@@ -370,7 +370,7 @@ function Transport() {
             <Reveal key={title}>
               <div className="group overflow-hidden rounded-[8px] border border-white/10 bg-white/[0.045]">
                 <div className="relative aspect-[16/11] overflow-hidden">
-                  <Image src={src} alt={title} fill sizes="(min-width: 1024px) 33vw, 100vw" className="object-cover transition duration-700 group-hover:scale-105" />
+                  <Image src={src} alt={title} fill sizes="(min-width: 1024px) 33vw, 100vw" loading="eager" className="object-cover transition duration-700 group-hover:scale-105" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-2xl font-semibold">{title}</h3>
@@ -391,7 +391,7 @@ function Cabin() {
     <section className="relative overflow-hidden bg-carbon py-24 md:py-36">
       <div className="section-shell grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
         <Reveal className="relative min-h-[520px] overflow-hidden rounded-[8px] border border-white/10">
-          <Image src={`${BASE_PATH}/images/optimized/p41-cabin2.jpg`} alt="Салон P-4" fill sizes="(min-width: 1024px) 58vw, 100vw" className="object-cover" />
+          <Image src={`${BASE_PATH}/images/optimized/p41-cabin2.jpg`} alt="Салон P-4" fill sizes="(min-width: 1024px) 58vw, 100vw" loading="eager" className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-transparent to-carbon/42" />
         </Reveal>
 
@@ -506,7 +506,7 @@ function Gallery() {
       >
         {gallery.map(([src, alt], index) => (
           <div key={src} className="relative h-[72vh] min-h-[460px] w-[86vw] shrink-0 snap-center overflow-hidden rounded-[8px] border border-white/10 md:w-[72vw]">
-            <Image src={src} alt={alt} fill sizes="90vw" draggable={false} className="object-cover" />
+            <Image src={src} alt={alt} fill sizes="90vw" draggable={false} loading="eager" className="object-cover" />
             <div className="absolute inset-0 bg-gradient-to-t from-black/72 via-transparent to-black/18" />
             <div className="absolute bottom-6 left-6 right-6 flex items-end justify-between gap-4">
               <div>
@@ -580,7 +580,7 @@ function CompactGallery() {
               onClick={() => setLightboxIndex(index)}
               className="group relative h-[310px] w-[84vw] shrink-0 snap-start overflow-hidden rounded-[8px] border border-white/10 bg-white/[0.035] text-left transition hover:border-ember/36 sm:w-[48vw] md:h-[360px] lg:w-[31.5%]"
             >
-              <Image src={src} alt={alt} fill sizes="(min-width: 1024px) 32vw, (min-width: 640px) 48vw, 84vw" draggable={false} className="object-cover transition duration-700 group-hover:scale-[1.04]" />
+              <Image src={src} alt={alt} fill sizes="(min-width: 1024px) 32vw, (min-width: 640px) 48vw, 84vw" draggable={false} loading="eager" className="object-cover transition duration-700 group-hover:scale-[1.04]" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/72 via-transparent to-black/16" />
               <div className="absolute bottom-5 left-5 right-5 flex items-end justify-between gap-4">
                 <div>

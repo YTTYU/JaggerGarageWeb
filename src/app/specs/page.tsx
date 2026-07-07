@@ -88,12 +88,12 @@ const comparison = [
 const trackComparison = [
   {
     title: "Обычная шарнирная гусеница",
-    image: `${BASE_PATH}/images/modifier/hinged-pressure.png`,
+    image: `${BASE_PATH}/images/modifier/optimized/hinged-pressure.jpg`,
     text: "Нагрузка концентрируется на отдельных траках, создавая локальные пики давления на грунт.",
   },
   {
     title: "Резинокордовое полотно P-4",
-    image: `${BASE_PATH}/images/modifier/rubbercord-pressure.png`,
+    image: `${BASE_PATH}/images/modifier/optimized/rubbercord-pressure.jpg`,
     text: "Более равномерное распределение нагрузки благодаря продольной упругости полотна и системе гидравлического натяжения.",
   },
 ];
@@ -230,6 +230,7 @@ export default function DetailedSpecsPage() {
                         alt={item.title}
                         fill
                         sizes="(min-width: 1024px) 42vw, 100vw"
+                        loading="eager"
                         className="object-contain p-5 md:p-8"
                       />
                     </div>

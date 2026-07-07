@@ -13,25 +13,25 @@ const variants = [
     id: "single",
     title: "Одиночная кабина",
     subtitle: "3 посадочных места",
-    image: `${BASE_PATH}/images/modifier/single-cab.png`,
+    image: `${BASE_PATH}/images/modifier/optimized/single-cab.jpg`,
   },
   {
     id: "double",
     title: "Двойная кабина",
     subtitle: "5 посадочных мест",
-    image: `${BASE_PATH}/images/modifier/double-cab.png`,
+    image: `${BASE_PATH}/images/modifier/optimized/double-cab.jpg`,
   },
   {
     id: "bus",
     title: "Автобус",
     subtitle: "пассажирская версия",
-    image: `${BASE_PATH}/images/modifier/bus.png`
+    image: `${BASE_PATH}/images/modifier/optimized/bus.jpg`
   },
   {
     id: "tent",
     title: "Тент",
     subtitle: "грузовая версия с тентом",
-    image: `${BASE_PATH}/images/modifier/tent.png`,
+    image: `${BASE_PATH}/images/modifier/optimized/tent.jpg`,
   },
 ];
 
@@ -41,13 +41,13 @@ const trackOptions = [
   {
     id: "high",
     title: "Полотно с высоким грунтозацепом",
-    image: `${BASE_PATH}/images/modifier/track-high-tread.png`,
+    image: `${BASE_PATH}/images/modifier/optimized/track-high-tread.jpg`,
     details: ["слабонесущие грунты", "болота", "снег", "торфяники", "максимальная тяга"],
   },
   {
     id: "low",
     title: "Полотно с низким профилем",
-    image: `${BASE_PATH}/images/modifier/track-low-profile.png`,
+    image: `${BASE_PATH}/images/modifier/optimized/track-low-profile.jpg`,
     details: ["твёрдые грунты", "смешанная эксплуатация", "длительные перегоны", "движение по дорогам"],
   },
 ];
@@ -121,8 +121,8 @@ export default function ModifierPage() {
                   src={active.image}
                   alt={`${active.title} P-4`}
                   fill
-                  priority
                   sizes="(min-width: 1024px) 58vw, 100vw"
+                  loading="eager"
                   className="object-contain p-6 md:p-10"
                 />
               </div>
@@ -161,10 +161,11 @@ export default function ModifierPage() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_12%,rgba(141,160,184,0.24),transparent_34%),linear-gradient(90deg,rgba(5,6,7,0.96)_0%,rgba(10,12,14,0.88)_48%,rgba(5,6,7,0.98)_100%)]" />
             <div className="absolute -right-[18%] -top-28 h-[520px] w-[118%] opacity-[0.42] md:-right-[10%] md:-top-36 md:h-[760px] md:w-[92%]">
               <Image
-                src={`${BASE_PATH}/images/modifier/tracks-decor.png`}
+                src={`${BASE_PATH}/images/modifier/optimized/tracks-decor.jpg`}
                 alt=""
                 fill
                 sizes="90vw"
+                loading="eager"
                 className="object-contain object-right-top [filter:contrast(1.35)_brightness(1.18)]"
               />
             </div>
@@ -200,6 +201,7 @@ export default function ModifierPage() {
                       alt={track.title}
                       fill
                       sizes="(min-width: 1024px) 44vw, 100vw"
+                      loading="eager"
                       className="object-contain p-5 transition duration-500 group-hover:scale-[1.03] md:p-8"
                     />
                   </div>
