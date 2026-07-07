@@ -155,7 +155,7 @@ export default function ModifierPage() {
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_12%,rgba(141,160,184,0.24),transparent_34%),linear-gradient(90deg,rgba(5,6,7,0.96)_0%,rgba(10,12,14,0.88)_48%,rgba(5,6,7,0.98)_100%)]" />
             <div className="absolute -right-[18%] -top-28 h-[520px] w-[118%] opacity-[0.42] md:-right-[10%] md:-top-36 md:h-[760px] md:w-[92%]">
               <Image
-                src={`${BASE_PATH}/images/modifier/optimized/tracks-decor.jpg`}
+                src={`${BASE_PATH}/images/modifier/tracks-decor.png`}
                 alt=""
                 fill
                 sizes="90vw"
