@@ -18,7 +18,7 @@ const nav = ["Технологии", "Характеристики", "Галер
 
 const contacts = {
   phone: "+792132277788",
-  phoneLabel: "+7 921 322-77-88",
+  phoneLabel: "+7 921 322-77-78",
   email: "info@jaggergarage.ru",
   vk: "https://vk.com/jagger_garage",
   youtube: "https://www.youtube.com/watch?v=ATKgAEqzKvQ&list=PLiCpP_44QZBwJO5NsC3Im6QBYj_JA2kn3&index=36",
