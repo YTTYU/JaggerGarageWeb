@@ -13,26 +13,20 @@ const variants = [
     id: "single",
     title: "Одиночная кабина",
     subtitle: "3 посадочных места",
-    image: `${BASE_PATH}/images/modifier/optimized/single-cab.jpg`,
+    image: `${BASE_PATH}/images/modifier/single-cab.png`,
   },
   {
     id: "double",
     title: "Двойная кабина",
     subtitle: "5 посадочных мест",
-    image: `${BASE_PATH}/images/modifier/optimized/double-cab.jpg`,
+    image: `${BASE_PATH}/images/modifier/double-cab.png`,
   },
   {
     id: "bus",
     title: "Автобус",
     subtitle: "пассажирская версия",
-    image: `${BASE_PATH}/images/modifier/optimized/bus.jpg`
-  },
-  {
-    id: "tent",
-    title: "Тент",
-    subtitle: "грузовая версия с тентом",
-    image: `${BASE_PATH}/images/modifier/optimized/tent.jpg`,
-  },
+    image: `${BASE_PATH}/images/modifier/bus.png`
+  }
 ];
 
 const palette = ["#111315", "#8da0b8", "#d7dde2", "#4b545c", "#74806f", "#b6a57d", "#7d2f2b"];
@@ -41,13 +35,13 @@ const trackOptions = [
   {
     id: "high",
     title: "Полотно с высоким грунтозацепом",
-    image: `${BASE_PATH}/images/modifier/optimized/track-high-tread.jpg`,
+    image: `${BASE_PATH}/images/modifier/track-high-tread.png`,
     details: ["слабонесущие грунты", "болота", "снег", "торфяники", "максимальная тяга"],
   },
   {
     id: "low",
     title: "Полотно с низким профилем",
-    image: `${BASE_PATH}/images/modifier/optimized/track-low-profile.jpg`,
+    image: `${BASE_PATH}/images/modifier/track-low-profile.png`,
     details: ["твёрдые грунты", "смешанная эксплуатация", "длительные перегоны", "движение по дорогам"],
   },
 ];
